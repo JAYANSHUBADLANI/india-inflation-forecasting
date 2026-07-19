@@ -1,0 +1,30 @@
+data:
+  fred_series_id: INDCPIALLMINMEI          # India CPI, all items, monthly index (OECD MEI via FRED)
+  dbnomics_series: IMF/CPI/M.IN.PCPI_IX    # fallback: IMF CPI index for India
+  start_date: "1990-01-01"
+  raw_path: data/raw/cpi_india_raw.csv
+  processed_path: data/processed/cpi_india.csv
+
+features:
+  lags: [1, 2, 3, 6, 12]
+  rolling_windows: [3, 6, 12]
+
+backtest:
+  test_start: "2015-01-01"
+  horizon: 1            # one-month-ahead
+  refit_every: 12       # refit models every 12 origins
+
+forecast:
+  horizon: 12           # months ahead for final forecast
+  quantiles: [0.1, 0.5, 0.9]
+
+sarima:
+  max_p: 3
+  max_q: 3
+  seasonal_period: 12
+
+lightgbm:
+  num_leaves: 15
+  learning_rate: 0.05
+  n_estimators: 400
+  min_child_samples: 20
