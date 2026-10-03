@@ -5,6 +5,8 @@ data/raw/
 data/processed/
 models/*.pkl
 reports/figures/*.png
+!reports/figures/trends.png
+!reports/figures/forecast.png
 .DS_Store
 venv/
 .env

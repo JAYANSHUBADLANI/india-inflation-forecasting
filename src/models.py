@@ -1,6 +1,6 @@
 """Model zoo for one-month-ahead YoY inflation forecasting.
 
-Four families, deliberately spanning classical -> Bayesian -> ML:
+Four families, deliberately spanning classical -> structural state-space -> ML:
   1. Naive baselines: random walk (last value), seasonal mean
   2. SARIMA with AIC-based order selection on a grid
   3. Unobserved Components Model (Bayesian structural time series flavour):

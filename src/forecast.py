@@ -52,6 +52,7 @@ def main() -> None:
     ax.fill_between(fc.index, fc["p10"], fc["p90"], color="tab:red", alpha=0.2,
                     label="80% interval")
     ax.axhspan(2, 6, color="green", alpha=0.1, label="RBI band")
+    ax.set_xlim(y.tail(60).index[0], fc.index[-1])  # axhspan otherwise pulls the date axis back to 1970
     ax.set_title("India YoY CPI inflation: 12-month forecast")
     ax.legend()
     fig.tight_layout()
